@@ -1,4 +1,8 @@
 import functions
+import time
+
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print(now)
 
 while True:
     user_input = input('Type "add", "show", "edit", "complete" or "exit": \n').strip().lower()
