@@ -1,11 +1,18 @@
 import PySimpleGUI as sG
 import functions
 import time
+import os
+
+# if toDos.txt doesn't exist, file will be generated
+if not os.path.exists("toDos.txt"):
+    with open("toDos.txt", "w") as file:
+        pass
 
 sG.theme('Dark Blue')
 
 clock = sG.Text("", key="clock")
 label = sG.Text("Type in a to-do: ")
+my_name = sG.Text("By Amirali Shadrou", font="arial 12")
 input_box = sG.InputText(key="todo")
 add_button = sG.Button("Add")
 
@@ -20,7 +27,7 @@ window = sG.Window("To-Do App", layout=[[clock],
                                         [label],
                                         [input_box, add_button],
                                         [list_box, edit_button, complete_button],
-                                        [exit_button]],
+                                        [exit_button, my_name]],
                    font=("Helvetica", 18))
 
 while True:
